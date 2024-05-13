@@ -1,4 +1,4 @@
-import Navbar from '@/components/Navbar'
+import Navbar from '@/components/Navbar';
 import '@/assets/styles/global.css';
 
 export const metadata = {
@@ -9,16 +9,19 @@ export const metadata = {
 
 import React from 'react';
 import Footer from '@/components/Footer';
+import AuthProvider from '@/components/AuthProvider';
 
 const MainLayout = ({ children }) => {
   return (
-    <html lang='en'>
-      <body>
-        <Navbar />
-        <main>{children}</main>
-        <Footer/>
-      </body>
-    </html>
+    <AuthProvider>
+      <html lang='en'>
+        <body>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </body>
+      </html>
+    </AuthProvider>
   );
 };
 
