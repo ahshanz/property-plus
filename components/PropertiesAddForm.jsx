@@ -98,7 +98,7 @@ const PropertiesAddForm = () => {
 
   return (
     mounted && (
-      <form>
+      <form action="/api/properties/" method="post" encType="multipart/form-data">
         <h2 className='text-3xl text-center font-semibold mb-6'>
           Add Property
         </h2>
@@ -558,6 +558,7 @@ const PropertiesAddForm = () => {
             accept='image/*'
             multiple
             onChange={handleImageChange}
+            required
           />
         </div>
 
