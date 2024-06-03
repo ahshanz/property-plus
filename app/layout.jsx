@@ -1,7 +1,9 @@
 import Navbar from '@/components/Navbar';
 import '@/assets/styles/global.css';
 import { ToastContainer } from 'react-toastify';
+import { GlobalProvider } from '@/context/GlobalContext';
 import 'react-toastify/dist/ReactToastify.css';
+import 'photoswipe/dist/photoswipe.css'
 
 export const metadata = {
   title: 'PropetyPulse | Find the perfect Rental',
@@ -15,16 +17,18 @@ import AuthProvider from '@/components/AuthProvider';
 
 const MainLayout = ({ children }) => {
   return (
-    <AuthProvider>
-      <html lang='en'>
-        <body>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-          <ToastContainer />
-        </body>
-      </html>
-    </AuthProvider>
+    <GlobalProvider>
+      <AuthProvider>
+        <html lang='en'>
+          <body>
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+            <ToastContainer />
+          </body>
+        </html>
+      </AuthProvider>
+    </GlobalProvider>
   );
 };
 
